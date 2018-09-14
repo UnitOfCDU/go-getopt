@@ -1,9 +1,9 @@
 # getopt for go
-### Installation
+## 安装
 ```
-go get ...
+go get github.com/zouxinjiang/go-getopt
 ```
-### Base Usage
+## 基础用法
 ```go
 package main
 
@@ -35,7 +35,7 @@ xxx -nwa -c=xxx
 xxx -na -c=xxx
 xxx --name --age -wc=cccc
 ```
-### 结构
+## 结构
 ```go
 type Option struct {
 	Short int32 //短名字
@@ -45,7 +45,7 @@ type Option struct {
 	Useage string	//提示信息
 }
 ```
-字段 | 组合
+字段 | 含义
 --- | ---
 Short | 短参数名
 Required | 是否为必传参数
@@ -53,7 +53,7 @@ Default | 默认值。如果是必传参数，将此字段设置为""(空字符�
 Long | 长参数名
 Useage | 参数提示信息
 
-### 结果
+## 结果
 - 如果是非必传参数，如果不传，即使设置了默认值，结果中不会有该字段的值
 - 如果是必传字段，如果不传，则会返回错误，并显示useage。如果传了，但是没有给值，那么就会被赋予默认值。如果默认值为""空字符串，那么会返回错误，告知某字段必须为 -x=xx的形式
 - 如果传递了没有注册的字段，则结果会忽略该字段。
